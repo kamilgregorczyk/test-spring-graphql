@@ -1,0 +1,38 @@
+type Recipe {
+    id: ID!
+    title: String!
+    description: String!
+    categories: [Category]!
+    notes: [Note]!
+    notesCount: Int!
+}
+
+type Category {
+    id: ID!
+    title: String!
+    recipes: [Recipe]!
+}
+
+type Note {
+    id: ID!
+    title: String!
+    description: String!
+}
+
+type Query {
+
+    getRecipes: [Recipe]!
+    getRecipe(id: ID!): Recipe!
+    getNotes(recipeId: ID!): [Note]!
+}
+
+type Mutation {
+    createRecipe(input: CreateRecipeInput!) : Recipe!
+}
+
+input CreateRecipeInput {
+    title: String!
+    description: String!
+    categories: [String]!
+    notes: [String]!
+}
