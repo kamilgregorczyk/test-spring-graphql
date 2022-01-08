@@ -99,7 +99,7 @@ public class RecipeController {
 
             return recipes
                 .stream()
-                .collect(toMap(identity(), recipe -> recipeIdToNotes.getOrDefault(recipe.id, emptyList())));
+                .collect(toUnmodifiableMap(identity(), recipe -> recipeIdToNotes.getOrDefault(recipe.id, emptyList())));
         });
     }
 
