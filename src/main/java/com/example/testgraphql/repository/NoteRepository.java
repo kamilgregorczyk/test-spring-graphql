@@ -6,11 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
-
-    Optional<Note> findByTitle(String title);
 
     List<Note> findByRecipeIdIn(Collection<Long> recipeIds);
 
